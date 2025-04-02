@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Image Story Generator</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Multi-Image Story Generator</h1>
+        
+        <label for="word-count">Select the maximum number of words for the story:</label>
+        <input type="range" id="word-count" min="50" max="500" step="10" value="150">
+        <p id="word-count-display">150 words</p>
+        
+        <p>Select story genre(s):</p>
+        <div id="genre-selection" class="genre-selection">
+            <label><input type="checkbox" name="genre" value="Action"> Action</label>
+            <label><input type="checkbox" name="genre" value="Adventure"> Adventure</label>
+            <label><input type="checkbox" name="genre" value="Comedy"> Comedy</label>
+            <label><input type="checkbox" name="genre" value="Crime"> Crime</label>
+            <label><input type="checkbox" name="genre" value="Drama"> Drama</label>
+            <label><input type="checkbox" name="genre" value="Fantasy"> Fantasy</label>
+        </div>
+
+        <div id="upload-area" class="upload-area" onclick="document.getElementById('image-upload').click()">
+            <input type="file" id="image-upload" accept="image/*" multiple hidden>
+            <div class="upload-content">
+                <img src="https://img.icons8.com/ios-filled/50/000000/picture.png" alt="Upload Icon">
+                <p>Drop your image here, or <span class="browse-link">browse</span></p>
+                <p class="upload-support">Supports: JPG, JPEG2000, PNG</p>
+            </div>
+        </div>
+
+        <div id="image-preview" class="image-preview-container"></div>
+        
+        <button id="generate-story">Generate Story</button>
+        
+        <!-- Loading indicator with circle -->
+        <div id="loading-indicator" style="display: none;">
+            <span class="loading-circle"></span> Loading...
+        </div>
+        
+        <!-- Story output -->
+        <div id="story-text" class="story-output"></div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
